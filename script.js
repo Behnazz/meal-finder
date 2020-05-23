@@ -31,14 +31,14 @@ const searchMeal = async (e) => {
         } else {
           resultHeading.innerHTML = `<h2>Search result for ${term}:</h2>`;
           mealsEl.innerHTML = res.meals.map(meal => (`
-          <div class="meal">
+          <section class="meal">
             <img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
-            <div class="meal-info" data-mealId= "${meal.idMeal}">
+            <section class="meal-info" data-mealId= "${meal.idMeal}">
               <h3>
               ${meal.strMeal}
               </h3>
-            </div>
-          </div>`
+            </section>
+          </section>`
           ))
             .join('');
 
@@ -74,14 +74,14 @@ const addMealToDOM = (meal) => {
     }
   }
   single_mealEl.innerHTML = `
-  <div class="single-meal">
+  <section class="single-meal">
     <h1>${meal.strMeal}</h1>
     <img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
-    <div class="single-meal-info">
+    <header class="single-meal-info">
       ${meal.strCategory ? `<p>${meal.strCategory} </p>` : ''}
       ${meal.strArea ? `<p>${meal.strArea} </p>` : ''}
-    </div>
-    <div class="main">
+    </header>
+    <article class="main">
       <h2>Ingredients</h2>
     <ul>
       ${ingredients.map(ingredient =>
@@ -90,8 +90,8 @@ const addMealToDOM = (meal) => {
     </ul>
     <h2>Method:</h2>
     <p>${meal.strInstructions}</p>
-    </div>
-  </div>
+    </article>
+  </section>
   `
 };
 
